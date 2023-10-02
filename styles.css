@@ -1,0 +1,11 @@
+#canvas {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15,1fr);
+    border: 1px white solid;
+}
+
+img {
+    width: 45px;
+    height: 45px;
+}
