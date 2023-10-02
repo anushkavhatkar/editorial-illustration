@@ -23,25 +23,31 @@ var totalCells = xCells*yCells;
 console.log(totalCells);
 
 
-// 3 BASIC ARRAY SETUP
-let assetNumber = 18;
-let blankCellsNumber = Math.floor(0.2*totalCells);
-let binaryNumber = totalCells-assetNumber-blankCellsNumber;
+function renderGrid() {
+    canvas.innerHTML = '';
 
-let assetsArray = [];
-let binaryArray = [];
-let blankCellsArray = [];
-let superArray = [];
+// 3 BASIC ARRAY SETUP
+    let assetNumber = 18;
+    let blankCellsNumber = Math.floor(0.2*totalCells);
+    let binaryNumber = totalCells-assetNumber-blankCellsNumber;
+
+    let assetsArray = [];
+    let binaryArray = [];
+    let blankCellsArray = [];
+    let superArray = [];
 
 
 // 4 PUSH ASSET ARRAY
-for (let i=1; i<assetNumber; i++) {
-    let assetImage = document.createElement('img');
-    assetImage.setAttribute('src', `/assets/${[i]}.png`);
-    assetImage.style.width = cellSize-22 + "px";
-    assetImage.style.height = cellSize-22 + "px";
+    for (let i=1; i<assetNumber; i++) {
+        let assetImage = document.createElement('img');
+        assetImage.setAttribute('src', `/assets/${[i]}.png`);
+        assetImage.style.width = cellSize-22 + "px";
+        assetImage.style.height = cellSize-22 + "px";
+        
+        assetImage.style.position = "relative";
+        assetImage.style.top = "1em";
 
-    assetsArray.push(assetImage);
+        assetsArray.push(assetImage);
 }
 
 // 5 PUSH BINARY ARRAY
@@ -54,13 +60,13 @@ for (let j=0; j<binaryNumber; j++) {
 
     function randomBinaryGlyph(result) {
     if (result === 0) {
-        binaryGlyph.innerHTML = "0";
+    binaryGlyph.innerHTML = "0";
     } else {
-        binaryGlyph.innerHTML = "1";
+    binaryGlyph.innerHTML = "1";
     }
-};
+    };
 
-randomBinaryGlyph(result);
+    randomBinaryGlyph(result);
 
     binaryArray.push(binaryGlyph);
 }
@@ -81,7 +87,7 @@ superArray.push(...assetsArray, ...binaryArray, ...blankCellsArray);
 
 // 8 SHUFFLING SUPER ARRAY 
 // Taken from https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array/6274381#6274381 
-function shuffleArray(arr) {
+    function shuffleArray(arr) {
     var j, x, index;
     for (index = arr.length - 1; index > 0; index--) {
         j = Math.floor(Math.random() * (index + 1));
@@ -99,6 +105,16 @@ shuffleArray(superArray);
 superArray.forEach((element) => {
     canvas.appendChild(element);
 })
+
+};
+
+renderGrid();
+
+// 10 FUNCTION THAT RERENDERS GRID EVERY HALF SECOND
+setInterval(renderGrid, 400);
+
+
+
 
 
 
