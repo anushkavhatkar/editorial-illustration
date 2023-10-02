@@ -1,5 +1,11 @@
-let illoCanvas = document.getElementById("canvas");
+let canvas = document.getElementById("canvas");
 
-illoCanvas.style.backgroundColor = "#00d568";
-illoCanvas.style.width = "1000px";
-illoCanvas.style.height = "1000px";
+// 1 BASIC CANVAS SETUP
+let canvasDimension = "750px";
+let canvasDimensionValue = parseInt(canvasDimension, 10);
+
+canvas.style.backgroundColor = "#00d568";
+canvas.style.width = canvasDimension;
+canvas.style.height = canvasDimension;
+
+
