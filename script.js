@@ -43,6 +43,8 @@ function renderGrid() {
         assetImage.setAttribute('src', `/assets/${[i]}.png`);
         assetImage.style.width = cellSize-10 + "px";
         assetImage.style.height = cellSize-10 + "px";
+        assetImage.classList.add("rotate");
+        
         
         assetImage.style.position = "relative";
         assetImage.style.top = "1em";
@@ -55,6 +57,7 @@ for (let j=0; j<binaryNumber; j++) {
     let binaryGlyph = document.createElement('p');
     binaryGlyph.style.width = cellSize + "px";
     binaryGlyph.style.height = cellSize + "px";
+    binaryGlyph.classList.add("rotate");
 
     let result = Math.random() < 0.5 ? 0 : 1;
 
@@ -106,14 +109,30 @@ superArray.forEach((element) => {
     canvas.appendChild(element);
 })
 
+//MOUSEOVER FUNCTION
+for (const element of superArray) {
+    element.addEventListener("mouseover", function(){
+
+        element.style.transform = `translateY(${Math.random()*300 - 100}%) translateX(${Math.random()*300 - 100}%) rotate(${Math.random()*500 - 100}deg)`;
+
+    })
+}
+
 };
 
 renderGrid();
 
 // 10 FUNCTION THAT RERENDERS GRID EVERY HALF SECOND
-setInterval(renderGrid, 500);
+setInterval(renderGrid, 1000);
 
 
 
-//MOUSEOVER FUNCTION
+// //MOUSEOVER FUNCTION
+// for (const element of superArray) {
+//     element.addEventListener("mouseover", function(){
+//     // loop through the parts
+//     // set the "transform" style to random translation and rotation within a range
+//         element.style.transform = `translateY(${Math.random()*300 - 150}%) translateX(${Math.random()*300 - 150}%) rotate(${Math.random()*800 - 250}deg)`;
 
+//     })
+// }
