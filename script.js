@@ -27,7 +27,7 @@ function renderGrid() {
     canvas.innerHTML = '';
 
 // 3 BASIC ARRAY SETUP
-    let assetNumber = 18;
+    let assetNumber = 19;
     let blankCellsNumber = Math.floor(0.2*totalCells);
     let binaryNumber = totalCells-assetNumber-blankCellsNumber;
 
@@ -41,8 +41,8 @@ function renderGrid() {
     for (let i=1; i<assetNumber; i++) {
         let assetImage = document.createElement('img');
         assetImage.setAttribute('src', `/assets/${[i]}.png`);
-        assetImage.style.width = cellSize-22 + "px";
-        assetImage.style.height = cellSize-22 + "px";
+        assetImage.style.width = cellSize-10 + "px";
+        assetImage.style.height = cellSize-10 + "px";
         
         assetImage.style.position = "relative";
         assetImage.style.top = "1em";
@@ -111,15 +111,9 @@ superArray.forEach((element) => {
 renderGrid();
 
 // 10 FUNCTION THAT RERENDERS GRID EVERY HALF SECOND
-setInterval(renderGrid, 300);
+setInterval(renderGrid, 500);
 
 
 
+//MOUSEOVER FUNCTION
 
-
-
-
-
-
-//function that refreshes canvas every 2 seconds
-//mouseover function 
