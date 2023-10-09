@@ -111,7 +111,7 @@ superArray.forEach((element) => {
 renderGrid();
 
 // 10 FUNCTION THAT RERENDERS GRID EVERY HALF SECOND
-setInterval(renderGrid, 400);
+setInterval(renderGrid, 300);
 
 
 
